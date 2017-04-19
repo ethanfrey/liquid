@@ -105,6 +105,18 @@ extra-deps:
 - terminal-size-0.3.2.1
 - StateVar-1.1.0.4
 - void-0.7.2
+- extra-1.5.2
+- haskell-src-exts-1.19.1
+- refact-0.3.0.2
+- uniplate-1.6.12
+- yaml-0.8.22
+- clock-0.7.2
+- conduit-1.2.10
+- resourcet-1.1.9
+- lifted-base-0.2.3.10
+- monad-control-1.0.1.0
+- transformers-base-0.4.4
+
 
 # Override default flag values for local packages and extra-deps
 flags: {}
