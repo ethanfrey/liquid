@@ -56,9 +56,10 @@ prove_list_eq [] = []
 prove_list_eq (x:[]) = [x]
 prove_list_eq (x:xs) = x:(prove_list_eq xs)
 
-{-@ mergeSort :: (Ord a) => xs:List a -> ListEq a xs @-}
+{-@ mergeSort :: (Ord a) => xs:List a -> {v:ListEq a xs | len xs == len v} @-}
+mergeSort :: (Ord a) => [a] -> [a]
 mergeSort []  = []
-mergeSort (x:[]) = [x]
+mergeSort (x:[]) = [x] -- comment out this line to find termination catch a bug
 mergeSort xs  = merge (mergeSort ys) (mergeSort zs)
   where
    (ys, zs)   = halve xs
