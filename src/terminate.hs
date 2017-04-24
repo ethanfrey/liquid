@@ -1,3 +1,6 @@
+{-@ LIQUID "--totalhaskell"      @-}
+{-@ LIQUID "--scrape-used-imports" @-}
+
 module Terminate
     (
     ) where
@@ -7,16 +10,11 @@ import Data.Set hiding (insert)
 
 {-@ type Nat = {v:Int | v >= 0} @-}
 
-{-@ die :: {v:String | false} -> _ @-}
-die x  = error x
-
 {-@ fib :: n:Nat -> Nat @-}
 fib :: Int -> Int
 fib 0 = 0
 fib 1 = 1
 fib n = fib (n-1) + fib (n-2)
--- must add such an explicit metric to prove partial functions
-fib _ = die "foo"
 
 {-@ measure elts @-}
 {-@ elts :: in:[a] -> {out:Set a| elts in = out} @-}
